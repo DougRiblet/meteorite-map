@@ -13,13 +13,14 @@
       position: absolute;
       text-align: left;
       width: 180px;
-      height: 36px;
-      padding: 2px;
+      height: 32px;
+      padding: 3px 6px;
       font: 8px sans-serif;
       background: white;
       border: 0px;
       border-radius: 2px;
       pointer-events: none;
+      box-shadow: 3px 3px 1px #444444;
     }
   </style>
 </head>
@@ -59,7 +60,6 @@ function createMap(error, world, rockdata) {
 
   var land = topojson.feature(world, world.objects.land).features;
   var rocks = rockdata.features.filter(x => Number(x.properties.mass) > 1000 && x.geometry);
-  console.log(rocks);
 
   svg.selectAll(".landmass")
     .data(land)
@@ -97,7 +97,6 @@ function createMap(error, world, rockdata) {
       .style("opacity", 0);
     })
 };
-
 </script>
 
 </body>
